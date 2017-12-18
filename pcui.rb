@@ -158,7 +158,7 @@ class Cell
 			# Proxy url setting 'HTTP_proxy' env var.
 			RestClient.proxy = @proxy
 		end
-		url = @url + '/__auth'
+		url = @url + '/__token'
 
 		begin
 			res = RestClient.post(url, {:grant_type => 'password', :username => @username, :password => @password})
@@ -546,7 +546,7 @@ if __FILE__ == $0
 
 			if(login_control_mode == DEMAND_TOKEN)
 				begin
-					msg.out(['Accessing ' + cell_url + '/__auth ...'])
+					msg.out(['Accessing ' + cell_url + '/__token ...'])
 					cell = Cell.new(cell_url, user_name, password, proxy)
 					ac.save(cell_url)
 					break
