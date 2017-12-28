@@ -253,6 +253,9 @@ class Cell
 	end
 
 	def list_formating(update_t, name, schema)
+		if(schema.nil?)
+			schema = ''
+		end
 		return (update_t + "\t" + name  + "\t" + schema)
 	end
 end
